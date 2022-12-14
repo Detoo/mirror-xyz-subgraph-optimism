@@ -1,0 +1,32 @@
+{
+  "name": "mirror-xyz-subgraph-optimism",
+  "version": "1.0.0",
+  "description": "Subgraph for Mirror.xyz @ Optimism",
+  "main": "index.js",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "npm run codegen && graph build",
+    "auth": "npx graph auth --product hosted-service $YOUR_GRAPH_ACCESS_TOKEN",
+    "deploy": "npm run codegen && graph deploy --product hosted-service detoo/mirror-xyz-optimism"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "0.37.1",
+    "@graphprotocol/graph-ts": "0.29.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Detoo/mirror-xyz-subgraph-optimism.git"
+  },
+  "keywords": [
+    "Optimism",
+    "Ethereum",
+    "Subgraph",
+    "Mirror.xyz"
+  ],
+  "author": "detoo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Detoo/mirror-xyz-subgraph-optimism/issues"
+  },
+  "homepage": "https://github.com/Detoo/mirror-xyz-subgraph-optimism#readme"
+}

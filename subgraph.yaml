@@ -1,0 +1,29 @@
+specVersion: 0.0.4
+description: Subgraph for Mirror.xyz @ Optimism
+repository: https://github.com/Detoo/mirror-xyz-subgraph-optimism.git
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Observability
+    network: optimism
+    source:
+      abi: Observability
+      address: "0x4C2393AAe4f0aD55dfd4ddCfa192F817d1b28d1F"
+      startBlock: 8557803
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/mappings/observability.ts
+      entities:
+        - Clone
+        - WritingEditionPurchased
+      abis:
+        - name: Observability
+          file: ./abis/Observability.json
+      eventHandlers:
+        - event: CloneDeployed(indexed address,indexed address,indexed address)
+          handler: handleCloneDeployed
+        - event: WritingEditionPurchased(indexed address,uint256,indexed address,uint256,string)
+          handler: handleWritingEditionPurchased

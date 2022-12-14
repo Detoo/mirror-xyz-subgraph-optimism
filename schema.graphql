@@ -1,0 +1,31 @@
+type Clone @entity {
+    "format: <article contract address>"
+    id: ID!
+    "factory contract address"
+    factory: Bytes!
+    "author/owner address"
+    owner: Bytes!
+    "block number when the article is created"
+    blockNumber: BigInt
+    "timestamp when the article is created"
+    timestamp: BigInt
+}
+
+type WritingEditionPurchased @entity {
+    "format: <tx hash>-<tx log index>"
+    id: ID!
+    "article"
+    clone: Clone!
+    "article token ID"
+    tokenId: BigInt!
+    "token recipient address"
+    recipient: Bytes!
+    "purchase price"
+    price: BigInt!
+    "purchase notes"
+    message: String!
+    "block number of the event"
+    blockNumber: BigInt
+    "timestamp of the event"
+    timestamp: BigInt
+}
